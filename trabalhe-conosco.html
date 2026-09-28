@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d0710" />
+  <meta name="description" content="Trabalhe conosco na EMI Digital Soluções. Conheça as oportunidades e envie seu currículo." />
+  <title>Trabalhe Conosco — EMI Digital Soluções</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0d0710;--bg-2:#160b1a;--ink:#fff9ff;--muted:#cbbdcb;--muted-2:#9f8fa2;
+      --brand:#7b146f;--brand-2:#b72aa4;--brand-3:#e45cd0;--line:rgba(255,255,255,.11);
+      --glass:rgba(255,255,255,.075);--glass-strong:rgba(255,255,255,.12);
+      --shadow:0 30px 100px rgba(0,0,0,.38);--radius:28px;--max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:"DM Sans",system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);
+      background:
+        radial-gradient(circle at 12% -5%,rgba(183,42,164,.18),transparent 31rem),
+        radial-gradient(circle at 85% 20%,rgba(123,20,111,.16),transparent 32rem),
+        linear-gradient(180deg,#0b060d 0%,#120915 46%,#0d0710 100%);
+      overflow-x:hidden;min-height:100vh
+    }
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+
+    .orb{position:fixed;border-radius:50%;pointer-events:none;z-index:-1;opacity:.85}
+    .orb.one{width:480px;height:480px;left:-230px;top:12vh;background:radial-gradient(circle,rgba(183,42,164,.22),transparent 68%)}
+    .orb.two{width:560px;height:560px;right:-270px;top:52vh;background:radial-gradient(circle,rgba(123,20,111,.24),transparent 70%)}
+
+    .nav-wrap{position:fixed;top:18px;left:0;right:0;z-index:100;padding-inline:16px}
+    .nav{width:min(1120px,100%);margin:auto;height:70px;padding:10px 12px 10px 18px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(255,255,255,.13);background:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.055));backdrop-filter:blur(24px) saturate(145%);-webkit-backdrop-filter:blur(24px) saturate(145%);border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.14);transition:.35s ease}
+    .nav.scrolled{background:rgba(17,8,20,.78);border-color:rgba(255,255,255,.16);transform:translateY(-4px)}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand img{width:84px;height:48px;object-fit:contain;filter:brightness(0) invert(1)}
+    .brand-name{font:800 13px/1 Manrope,sans-serif;letter-spacing:.06em;white-space:nowrap}
+    .brand-name small{display:block;margin-top:4px;color:var(--muted-2);font:600 9px/1.1 "DM Sans",sans-serif;letter-spacing:.12em;text-transform:uppercase}
+    .nav-links{display:flex;align-items:center;gap:30px;color:#e9dfea;font-size:14px;font-weight:600}
+    .nav-links a{position:relative;transition:.25s}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;border-radius:99px;background:var(--brand-3);transition:.25s}
+    .nav-links a:hover,.nav-links a.active{color:#fff}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .btn{border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 18px;border-radius:14px;font-weight:800;font-size:14px;transition:transform .22s ease,box-shadow .22s ease,background .22s ease;border:1px solid transparent}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,#a91f98,#6e0b63);color:white;box-shadow:0 12px 34px rgba(183,42,164,.25),inset 0 1px 0 rgba(255,255,255,.28)}
+    .btn-glass{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.13);color:white;backdrop-filter:blur(16px)}
+    .menu-btn{display:none;width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:#fff;font-size:21px}
+
+    .hero{position:relative;min-height:88vh;padding:160px 0 86px;display:flex;align-items:center;overflow:hidden}
+    .grid-bg{position:absolute;inset:0;pointer-events:none;opacity:.14;mask-image:linear-gradient(to bottom,black,transparent 78%);background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:46px 46px}
+    .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.03fr .97fr;gap:62px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid rgba(228,92,208,.22);background:rgba(228,92,208,.07);border-radius:999px;color:#f0b6e8;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#e45cd0;box-shadow:0 0 14px #e45cd0;animation:blink 1.5s infinite}
+    @keyframes blink{50%{opacity:.35;transform:scale(.8)}}
+    h1{font:800 clamp(3.25rem,7vw,6.4rem)/.92 Manrope,sans-serif;letter-spacing:-.075em;margin:24px 0 26px}
+    h1 .accent{display:block;color:transparent;background:linear-gradient(90deg,#fff 2%,#d88acf 47%,#8d187e 94%);-webkit-background-clip:text;background-clip:text}
+    .hero-copy p{max-width:650px;color:var(--muted);font-size:clamp(17px,1.7vw,20px);line-height:1.7;margin:0}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+
+    .glass-card{border:1px solid rgba(255,255,255,.105);background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.038));backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 28px 70px rgba(0,0,0,.18);border-radius:var(--radius)}
+    .career-preview{position:relative;padding:28px;overflow:hidden;transform:rotateY(-5deg) rotateX(3deg);transition:transform .25s ease}
+    .career-preview::before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;right:-100px;top:-120px;background:radial-gradient(circle,rgba(228,92,208,.22),transparent 70%)}
+    .preview-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}
+    .preview-title{display:flex;align-items:center;gap:10px;font-weight:800}.preview-title i{width:11px;height:11px;border-radius:50%;background:var(--brand-3);box-shadow:0 0 18px rgba(228,92,208,.75)}
+    .status{padding:7px 10px;border-radius:999px;background:rgba(72,255,166,.08);border:1px solid rgba(72,255,166,.17);font-size:10px;color:#9dffca;font-weight:800}
+    .role-card{padding:20px;border-radius:20px;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.08)}
+    .role-card small{color:var(--muted-2);text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:800}
+    .role-card h3{font:800 30px/1.05 Manrope;margin:10px 0 12px;letter-spacing:-.04em}
+    .role-card p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .chip{padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.055);font-size:11px;color:#e8dce8}
+    .mail-card{margin-top:12px;padding:18px;border-radius:18px;background:linear-gradient(135deg,rgba(183,42,164,.14),rgba(255,255,255,.045));border:1px solid rgba(228,92,208,.14)}
+    .mail-card strong{display:block;font:800 13px Manrope}.mail-card span{display:block;color:var(--muted-2);font-size:11px;margin-top:5px}
+
+    section{position:relative;padding:112px 0}
+    .section-kicker{color:#d778ca;text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:800;margin-bottom:14px}
+    .section-title{font:800 clamp(2.2rem,4.8vw,4.6rem)/1 Manrope,sans-serif;letter-spacing:-.055em;margin:0;max-width:850px}
+    .section-title span{color:#a84a9d}
+    .section-sub{max-width:690px;color:var(--muted);font-size:17px;line-height:1.75;margin:22px 0 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:46px}.section-head .section-sub{max-width:450px;margin:0}
+
+    .vacancy{padding:34px;display:grid;grid-template-columns:.72fr 1.28fr;gap:36px;align-items:start}
+    .vacancy-side{position:sticky;top:120px}
+    .vacancy-badge{display:inline-flex;padding:8px 11px;border-radius:999px;background:rgba(228,92,208,.08);border:1px solid rgba(228,92,208,.18);font-size:11px;color:#f0c2e9;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .vacancy h3{font:800 clamp(2rem,4vw,3.3rem)/1 Manrope;margin:18px 0 14px;letter-spacing:-.05em}
+    .vacancy-side p{color:var(--muted);line-height:1.7;margin:0}
+    .activities{display:grid;gap:12px}
+    .activity{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:18px;border-radius:18px;background:rgba(255,255,255,.047);border:1px solid rgba(255,255,255,.075);transition:.28s}
+    .activity:hover{transform:translateX(6px);background:rgba(255,255,255,.075);border-color:rgba(228,92,208,.18)}
+    .activity span{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:rgba(228,92,208,.08);border:1px solid rgba(228,92,208,.16);color:#f0b6e8;font-weight:800;font-size:12px}
+    .activity p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .why-card{padding:28px;min-height:235px;transition:.3s}
+    .why-card:hover{transform:translateY(-6px);border-color:rgba(228,92,208,.25)}
+    .why-card .icon{width:50px;height:50px;border-radius:16px;display:grid;place-items:center;background:rgba(228,92,208,.08);border:1px solid rgba(228,92,208,.16);font-size:21px}
+    .why-card h4{font:800 19px Manrope;margin:24px 0 10px}.why-card p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
+
+    .cta{padding-top:60px}.cta-box{position:relative;overflow:hidden;padding:66px 52px;text-align:center;border-radius:36px;background:linear-gradient(135deg,rgba(126,18,113,.72),rgba(61,8,57,.72));border:1px solid rgba(255,255,255,.16);box-shadow:0 40px 100px rgba(0,0,0,.28)}
+    .cta-box::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;left:-170px;top:-220px;background:radial-gradient(circle,rgba(255,255,255,.13),transparent 65%)}
+    .cta-box h2{position:relative;font:800 clamp(2.4rem,5vw,4.8rem)/.98 Manrope;letter-spacing:-.055em;margin:0 auto;max-width:880px}
+    .cta-box p{position:relative;max-width:680px;margin:22px auto 30px;color:#ead8e7;line-height:1.7}
+    .cta-box .btn{position:relative;background:#fff;color:#4d0c47;padding-inline:23px}
+
+    footer{padding:80px 0 30px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:50px;padding:44px 0;border-top:1px solid rgba(255,255,255,.09)}
+    .footer-brand img{width:120px;filter:brightness(0) invert(1);margin-bottom:18px}.footer-brand p{max-width:380px;color:var(--muted-2);font-size:13px;line-height:1.7}
+    .footer-col h5{font:800 12px Manrope;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px}.footer-col a{display:block;color:var(--muted);font-size:13px;margin:11px 0;transition:.2s}.footer-col a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.07);padding-top:22px;color:#827284;font-size:11px}
+
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+    .reveal.show{opacity:1;transform:none}
+    .cursor-glow{position:fixed;width:280px;height:280px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(228,92,208,.08),transparent 68%);transform:translate(-50%,-50%)}
+
+    @media(max-width:900px){
+      .nav-links{position:absolute;top:82px;left:16px;right:16px;display:none;flex-direction:column;align-items:stretch;gap:0;padding:14px;border-radius:18px;background:rgba(18,9,21,.94);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(22px)}
+      .nav.open .nav-links{display:flex}.nav-links a{padding:14px}.nav-actions .btn{display:none}.menu-btn{display:grid;place-items:center}
+      .hero{min-height:auto;padding-top:145px}.hero-inner{grid-template-columns:1fr;gap:45px}.career-preview{transform:none}
+      .vacancy{grid-template-columns:1fr}.vacancy-side{position:static}.why-grid{grid-template-columns:1fr}.section-head{display:block}.section-head .section-sub{margin-top:20px}
+      .footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}
+    }
+    @media(max-width:560px){
+      .container{width:min(var(--max),calc(100% - 28px))}.nav-wrap{top:10px;padding-inline:10px}.nav{height:64px;padding-left:12px;border-radius:18px}.brand img{width:66px}.brand-name{font-size:11px}
+      h1{font-size:clamp(3rem,16vw,4.5rem)}.hero{padding-bottom:55px}
+      section{padding:82px 0}.vacancy{padding:22px}.activity{grid-template-columns:38px 1fr;padding:15px}.activity span{width:38px;height:38px}
+      .cta-box{padding:48px 22px}.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer-bottom{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="orb one"></div><div class="orb two"></div><div class="cursor-glow" id="cursorGlow"></div>
+
+  <header class="nav-wrap">
+    <nav class="nav" id="nav">
+      <a class="brand" href="index.html#inicio" aria-label="EMI Digital Soluções">
+        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FtYWRhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTk1LjI4IDM1MS45MyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTk1LjI4IDM1MS45MzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzU2MDE0RDt9DQo8L3N0eWxlPg0KPGc+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTM3OS44NywyMzEuNjFjMy42MS04Ljg5LDcuMDktMTcuNDYsMTAuNTgtMjYuMDRjOC4wOC0xOS44NiwxNi4xNi0zOS43MiwyNC4yMy01OS41OA0KCQljNC41NS0xMS4xOCw5LjEtMjIuMzcsMTMuNjItMzMuNTdjMC41OS0xLjQ3LDEuMy0yLjI0LDMuMTEtMi4yMmMxMS43NCwwLjEsMjMuNDksMC4xLDM1LjIzLDAuMDFjMi4xNy0wLjAyLDIuMzQsMC40OCwxLjU2LDIuMzgNCgkJYy03LjY3LDE4LjY3LTE1LjI2LDM3LjM3LTIyLjg2LDU2LjA3Yy03LjQ5LDE4LjQ1LTE1LDM2Ljg5LTIyLjQyLDU1LjM3Yy0zLjAzLDcuNTQtMi45Miw3LjU4LTExLjE3LDcuNThjLTkuNjcsMC0xOS4zMywwLTI5LDANCgkJQzM4MS44OSwyMzEuNjEsMzgxLjAyLDIzMS42MSwzNzkuODcsMjMxLjYxeiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00NDkuOTIsMTA2Ljc2Yy01LjUxLDAtMTEuMDMsMC0xNi41NCwwYy0zLjIxLDAtMy4xMywwLjAzLTIuMTgtMi45NWMxLjA3LTMuMzEsMi40Mi02LjQxLDUuMDgtOC44DQoJCWMyLjczLTIuNDUsNS44NS0zLjksOS41NS0zLjkxYzkuNC0wLjAyLDE4LjgsMC4wMiwyOC4yLTAuMDRjMS44Ni0wLjAxLDIuMTMsMC40MiwxLjM3LDIuMTVjLTEuNjMsMy43MS0zLjA5LDcuNS00LjUxLDExLjMNCgkJYy0wLjYxLDEuNjQtMS40NywyLjM0LTMuMzYsMi4zQzQ2MS42OCwxMDYuNjcsNDU1LjgsMTA2Ljc2LDQ0OS45MiwxMDYuNzZ6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQxOS43NCw5MC4wMmMtOC43NywwLTE3LjU1LDAuMzUtMjYuMy0wLjFjLTguMjctMC40My0xNC43LDIuODEtMjAuNDIsOC4yNQ0KCQljLTE1LjUyLDE0Ljc2LTMxLjAyLDI5LjUyLTQ2LjU2LDQ0LjI1Yy0xLjA2LDEtMS45MywyLjI5LTMuNTIsMi44OWMtNC4zNi0xNS4zNC04LjY5LTMwLjQ5LTEyLjk2LTQ1LjY2DQoJCWMtMS43My02LjE2LTYuMDEtOS42MS0xMi40My05LjYxYy0zNy40Mi0wLjAxLTc0Ljg0LDAuMDItMTEyLjI2LTAuMDFjLTEuNTksMC0yLjQzLDAuNDgtMy4wMSwxLjk1Yy0xLjg4LDQuNzgtMy45LDkuNTEtNS44MywxNC4yOA0KCQljLTguNSwyMC45Ny0xNi45Niw0MS45NS0yNS40OSw2Mi45Yy03LjUxLDE4LjQ1LTE1LjExLDM2Ljg2LTIyLjU4LDU1LjMzYy0xLjA2LDIuNjMtMi40Niw1LjE4LTIuOTgsOC4yMWMwLjk3LDAsMS43NywwLDIuNTgsMA0KCQljMjQuNjctMC4wMSw0OS4zNS0wLjAyLDc0LjAyLTAuMDJjMTcuNjItMC4wMSwzNS4yNS0wLjA1LDUyLjg3LDAuMDRjMi4yMywwLjAxLDMuMzMtMC42LDQuMS0yLjc1YzEuNTQtNC4zMywzLjQxLTguNTQsNS4xMy0xMi44DQoJCWM1Ljg2LTE0LjQ1LDExLjctMjguOSwxNy41Ny00My4zNGMxLjQ4LTMuNjUsMy4wMy03LjI4LDQuNTQtMTAuOTJjMS4zNSwzLjM1LDIuMTMsNi41OCwyLjksOS44MWMyLjQ2LDEwLjI1LDQuOTYsMjAuNDksNy4zNSwzMC43Ng0KCQljMC41NywyLjQ1LDEuMDUsNC44LDMuODMsNS43MmMyLjc4LDAuOTIsNC42NC0wLjU4LDYuNDQtMi4zNmM3LjQ2LTcuMzYsMTQuOTQtMTQuNywyMi40Mi0yMi4wNWM3LjQtNy4yOCwxNC44MS0xNC41NSwyMi4yNS0yMS44Ng0KCQljMC40MSwwLjgyLTAuMDEsMS4zOC0wLjI0LDEuOTRjLTIuMzcsNS44NS00Ljc2LDExLjY5LTcuMTQsMTcuNTNjLTYuNDgsMTUuOTUtMTIuOTMsMzEuOTItMTkuNDgsNDcuODQNCgkJYy0wLjg1LDIuMDctMC41NywyLjQ5LDEuNjgsMi40OGMxMi4wMi0wLjEsMjQuMDQtMC4xMywzNi4wNiwwLjAyYzIuMzYsMC4wMywzLjI0LTAuODcsNC4wMy0yLjg3YzMuNDItOC43Miw2Ljk5LTE3LjM5LDEwLjUyLTI2LjA3DQoJCWM4LjIyLTIwLjIsMTYuNDUtNDAuNCwyNC42Ny02MC42YzYuOC0xNi43LDEzLjU4LTMzLjM5LDIwLjM5LTUwLjA5QzQyMy4xNiw5MC4wMSw0MjMuMTksOTAuMDIsNDE5Ljc0LDkwLjAyeiBNMjU4Ljk4LDEyNy4zMg0KCQljLTkuMDYsMjIuMS0xOC4wNiw0NC4yMi0yNy4wNiw2Ni4zNGMtMC40LDAuOTgtMC41MiwyLjAyLTIuMDYsMi4wMWMtMTUuODEtMC4wNS0zMS42MS0wLjAzLTQ3Ljg5LTAuMDMNCgkJYzIuNDUtNS44Nyw0Ljc4LTExLjMyLDYuOTktMTYuODJjMC42Mi0xLjU0LDEuNzctMS4yNiwyLjktMS4yNmM5LjIyLTAuMDEsMTguNDQtMC4wNywyNy42NSwwLjA1YzIuMTEsMC4wMywzLjA3LTAuNTIsMy45My0yLjU5DQoJCWM0LjA0LTkuNzQsOC4yOS0xOS4zOSwxMi41OS0yOS4wMmMwLjk5LTIuMjEsMC42LTIuNjctMS43Ny0yLjY1Yy05LjU4LDAuMTEtMTkuMTYsMC0yOC43NCwwLjA4Yy0yLjA3LDAuMDItMi43NC0wLjE2LTEuNjQtMi40NA0KCQljMi4xOS00LjU0LDQuMDgtOS4yMyw1Ljk4LTEzLjljMC41Mi0xLjI3LDEuMTQtMS43OSwyLjU2LTEuNzhjMTUuMDksMC4wNSwzMC4xOCwwLjA1LDQ1LjI3LDAuMDENCgkJQzI1OS40MSwxMjUuMzMsMjU5LjY0LDEyNS43LDI1OC45OCwxMjcuMzJ6Ii8+DQoJPGc+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNDYuMzMsMjY3LjNsNy41Mi0yMi4wNWg3LjAxbDcuNzMsMjIuMDVoLTQuNDFsLTYuNTUtMTkuMTJsMS41NCwwLjY3aC0zLjc4bDEuNTctMC42N2wtNi4zNCwxOS4xMkgxNDYuMzN6DQoJCQkgTTE1MS41OCwyNjEuNDRsMS4zNi0zLjYyaDguOTRsMS4zMywzLjYySDE1MS41OHoiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE4MS4yNywyNjcuODdjLTEuODksMC0zLjU2LTAuMzItNS0wLjk1Yy0xLjQ0LTAuNjMtMi42NS0xLjQ5LTMuNjItMi41N2MtMC45OC0xLjA4LTEuNzEtMi4yOS0yLjIxLTMuNjUNCgkJCWMtMC40OS0xLjM2LTAuNzQtMi43Ny0wLjc0LTQuMjR2LTAuNjZjMC0xLjM5LDAuMjQtMi43NSwwLjczLTQuMDhzMS4xOS0yLjUzLDIuMTMtMy41OWMwLjk0LTEuMDcsMi4wOS0xLjkyLDMuNDctMi41NQ0KCQkJYzEuMzgtMC42MywyLjk2LTAuOTUsNC43Ni0wLjk1YzEuOTMsMCwzLjY0LDAuMzYsNS4xNCwxLjA3YzEuNDksMC43MSwyLjY5LDEuNzEsMy41OSwyLjk5YzAuOTEsMS4yOCwxLjQ0LDIuNzYsMS42LDQuNDZoLTQuMzINCgkJCWMtMC4xNC0wLjk1LTAuNDktMS43Ni0xLjA2LTIuNDNjLTAuNTYtMC42Ny0xLjI3LTEuMTktMi4xMy0xLjU2cy0xLjgtMC41NC0yLjgyLTAuNTRjLTEuMDMsMC0xLjk2LDAuMTgtMi43OSwwLjU0DQoJCQljLTAuODQsMC4zNi0xLjU1LDAuODgtMi4xMywxLjU0Yy0wLjU4LDAuNjctMS4wMywxLjQ2LTEuMzQsMi4zOWMtMC4zMSwwLjkzLTAuNDcsMS45NS0wLjQ3LDMuMDhjMCwxLjIzLDAuMTcsMi4zMywwLjUxLDMuMjkNCgkJCWMwLjM0LDAuOTcsMC44MywxLjc5LDEuNDUsMi40NnMxLjM4LDEuMTksMi4yNywxLjU0YzAuODksMC4zNSwxLjg4LDAuNTMsMi45OSwwLjUzYzEuNDcsMCwyLjc2LTAuMzEsMy44Ny0wLjkyDQoJCQljMS4xMS0wLjYxLDEuOTEtMS40MSwyLjQyLTIuNGwtMC43NSwzLjQ3di01LjY4aDMuOTZ2NC44OWMtMC45NSwxLjQzLTIuMjMsMi41NC0zLjg3LDMuMzQNCgkJCUMxODUuMjYsMjY3LjQ4LDE4My4zOSwyNjcuODcsMTgxLjI3LDI2Ny44N3ogTTE4MC41OCwyNTkuMjl2LTMuMmgxMi4wMnYzLjJIMTgwLjU4eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTk2LjEzLDI2Ny4zdi0yMi4wNWg0LjJ2MjIuMDVIMTk2LjEzeiBNMTk2LjU2LDI0My41NmwzLjktNS4yNmg0Ljk4bDMuOTYsNS4yNmgtMy44NGwtMi4zOS0zLjIzaC0wLjUxDQoJCQlsLTIuMzMsMy4yM0gxOTYuNTZ6IE0xOTkuNzMsMjQ4Ljg3di0zLjYyaDkuNzZ2My42MkgxOTkuNzN6IE0xOTkuNzMsMjU3Ljkxdi0zLjYyaDkuMjF2My42MkgxOTkuNzN6IE0xOTkuNzMsMjY3LjN2LTMuNjJoMTB2My42Mg0KCQkJSDE5OS43M3oiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTIxNC4xNCwyNjcuM3YtMjIuMDVoNy4wNGw5LjI3LDE4LjQ5aDFsLTAuNiwwLjU0di0xOS4wM2g0LjA1djIyLjA1aC03LjA3bC05LjI3LTE4LjQ5aC0xLjAzbDAuNi0wLjU0djE5LjAzDQoJCQlIMjE0LjE0eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUwLjI2LDI2Ny44N2MtMS45OSwwLTMuNzEtMC4zNS01LjE0LTEuMDZjLTEuNDMtMC43LTIuNTktMS42Mi0zLjQ5LTIuNzVjLTAuOS0xLjEzLTEuNTYtMi4zNi0xLjk4LTMuNjgNCgkJCWMtMC40Mi0xLjMzLTAuNjMtMi42MS0wLjYzLTMuODR2LTAuNjdjMC0xLjM3LDAuMjItMi43MiwwLjY1LTQuMDVzMS4xLTIuNTQsMi4wMS0zLjYyYzAuOTEtMS4wOSwyLjA2LTEuOTYsMy40Ni0yLjYxDQoJCQljMS40LTAuNjUsMy4wNi0wLjk4LDQuOTctMC45OGMxLjk5LDAsMy43MywwLjM2LDUuMjEsMS4wN2MxLjQ4LDAuNzEsMi42NiwxLjcyLDMuNTUsMy4wMmMwLjg5LDEuMywxLjQyLDIuODEsMS42LDQuNTVoLTQuMzINCgkJCWMtMC4xNi0xLjAxLTAuNTItMS44Ni0xLjA3LTIuNTVjLTAuNTUtMC43LTEuMjUtMS4yMi0yLjEtMS41N2MtMC44NS0wLjM1LTEuOC0wLjUzLTIuODctMC41M2MtMS4wOSwwLTIuMDUsMC4xOS0yLjksMC41Ng0KCQkJYy0wLjg1LDAuMzctMS41NSwwLjktMi4xMSwxLjU5cy0wLjk5LDEuNDktMS4yOCwyLjQyYy0wLjI5LDAuOTMtMC40NCwxLjk1LTAuNDQsMy4wOGMwLDEuMDksMC4xNSwyLjA5LDAuNDQsMy4wMg0KCQkJYzAuMjksMC45MywwLjczLDEuNzQsMS4zMSwyLjQzYzAuNTgsMC43LDEuMywxLjIzLDIuMTYsMS42MmMwLjg2LDAuMzgsMS44NSwwLjU3LDIuOTgsMC41N2MxLjY1LDAsMy4wNS0wLjQxLDQuMTgtMS4yMg0KCQkJczEuODMtMS45NiwyLjA3LTMuNDNoNC4zMmMtMC4yLDEuNTctMC43NCwzLjAxLTEuNiw0LjMyYy0wLjg3LDEuMzEtMi4wNSwyLjM2LTMuNTYsMy4xNA0KCQkJQzI1NC4xNiwyNjcuNDgsMjUyLjM2LDI2Ny44NywyNTAuMjYsMjY3Ljg3eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjY0LjUyLDI2Ny4zdi0yMi4wNWg0LjI5djIyLjA1SDI2NC41MnoiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI3Mi4xMywyNjcuM2w3LjUyLTIyLjA1aDcuMDFsNy43MywyMi4wNWgtNC40MWwtNi41NS0xOS4xMmwxLjU0LDAuNjdoLTMuNzhsMS41Ny0wLjY3bC02LjM0LDE5LjEySDI3Mi4xM3oNCgkJCSBNMjc3LjM5LDI2MS40NGwxLjM2LTMuNjJoOC45NGwxLjMzLDMuNjJIMjc3LjM5eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzAxLjk0LDI2Ny4zbDQuMjMtMjEuMTRoOS4xOGMyLjIxLDAsNC4xMSwwLjM2LDUuNjksMS4wOWMxLjU4LDAuNzMsMi43OSwxLjc1LDMuNjQsMy4wNw0KCQkJYzAuODUsMS4zMiwxLjI3LDIuODksMS4yNyw0LjczYzAsMS44Ny0wLjMyLDMuNTYtMC45Nyw1LjA2Yy0wLjY0LDEuNS0xLjU1LDIuNzktMi43MiwzLjg3Yy0xLjE3LDEuMDgtMi41NiwxLjktNC4xNywyLjQ4DQoJCQljLTEuNjEsMC41Ny0zLjM5LDAuODYtNS4zNSwwLjg2SDMwMS45NHogTTMwOC44OSwyNjIuNTNoNC4wNWMxLjUxLDAsMi43OC0wLjMxLDMuODEtMC45NGMxLjAzLTAuNjIsMS44MS0xLjQ3LDIuMzYtMi41NQ0KCQkJYzAuNTQtMS4wOCwwLjgyLTIuMjksMC44Mi0zLjY0YzAtMC45NS0wLjItMS43NS0wLjU5LTIuNDJzLTAuOTgtMS4xNy0xLjc1LTEuNTNzLTEuNzQtMC41My0yLjg4LTAuNTNoLTMuNUwzMDguODksMjYyLjUzeiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzI2Ljg5LDI2Ny4zbDQuMjMtMjEuMTRoNS45OGwtNC4yMywyMS4xNEgzMjYuODl6Ii8+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNDguNjcsMjY3LjcyYy0yLjEzLDAtNC0wLjM5LTUuNi0xLjE4Yy0xLjYtMC43OS0yLjg0LTEuODgtMy43Mi0zLjI4cy0xLjMxLTMuMDItMS4zMS00Ljg1DQoJCQljMC0xLjgzLDAuMzItMy41MiwwLjk3LTUuMDdjMC42NC0xLjU1LDEuNTYtMi44OSwyLjc1LTQuMDNzMi42LTIuMDIsNC4yNC0yLjY0YzEuNjQtMC42MiwzLjQ3LTAuOTQsNS40OC0wLjk0DQoJCQljMi4xMSwwLDMuOTQsMC4zMyw1LjQ4LDFjMS41NCwwLjY3LDIuNzgsMS42MywzLjczLDIuOWwtNC4yOSwzLjM4Yy0wLjcxLTAuODctMS40Ny0xLjQ3LTIuMjktMS44MWMtMC44My0wLjM0LTEuNzktMC41MS0yLjktMC41MQ0KCQkJYy0xLjA5LDAtMi4wNywwLjE4LTIuOTQsMC41NHMtMS42MywwLjg4LTIuMjUsMS41NGMtMC42MiwwLjY3LTEuMSwxLjQ1LTEuNDMsMi4zNGMtMC4zMywwLjktMC41LDEuODctMC41LDIuOTENCgkJCWMwLDAuOTUsMC4yMSwxLjc4LDAuNjMsMi40OXMxLjA0LDEuMjcsMS44NCwxLjY2czEuNzgsMC41OSwyLjkzLDAuNTljMC45MywwLDEuODItMC4xNSwyLjY3LTAuNDVjMC44Ni0wLjMsMS43Mi0wLjgsMi41OC0xLjUxDQoJCQlsMi4yNyw0LjM4Yy0xLjA5LDAuODEtMi4zNSwxLjQzLTMuNzgsMS44N0MzNTEuOCwyNjcuNSwzNTAuMjgsMjY3LjcyLDM0OC42NywyNjcuNzJ6IE0zNTEuOSwyNjQuMjVsMS42LTcuOTdoNS4yOWwtMS43OCw4LjkxDQoJCQlMMzUxLjksMjY0LjI1eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzYwLjM5LDI2Ny4zbDQuMjMtMjEuMTRoNS45OGwtNC4yMywyMS4xNEgzNjAuMzl6Ii8+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNzUuMSwyNjcuM2wzLjI5LTE2LjRoLTYuNDlsMC45Ny00Ljc0aDE4Ljk0bC0wLjk3LDQuNzRoLTYuNDZsLTMuMjksMTYuNEgzNzUuMXoiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTM4Ni4yMSwyNjcuM2wxMy41Ni0yMS4xNGg1Ljg5bDUuMSwyMS4xNGgtNS45NWwtMy43OC0xOC4zaDIuMzZsLTEwLjg3LDE4LjNIMzg2LjIxeiBNMzkyLjEzLDI2My4xOQ0KCQkJbDIuNDItNC40MWgxMC4zM2wwLjY2LDQuNDFIMzkyLjEzeiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDEyLjQ5LDI2Ny4zbDQuMjMtMjEuMTRoNS45OGwtMy4yNiwxNi40aDEwLjA5bC0wLjk3LDQuNzRINDEyLjQ5eiIvPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K" alt="EMI Digital Soluções">
+        <div class="brand-name">EMI DIGITAL<small>Soluções</small></div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#solucoes">Soluções</a>
+        <a href="index.html#processo">Como fazemos</a>
+        <a class="active" href="trabalhe-conosco.html">Trabalhe conosco</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="mailto:vagas@emidigitalsolucoes.com.br?subject=Curr%C3%ADculo%20-%20Vaga%20Social%20Media">Enviar currículo ↗</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="grid-bg"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Carreiras na EMI</div>
+          <h1>Faça parte de quem <span class="accent">transforma ideias.</span></h1>
+          <p>Buscamos pessoas curiosas, criativas e conectadas com tecnologia, marketing e novas formas de construir experiências digitais.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#vaga">Ver oportunidade ↘</a>
+            <a class="btn btn-glass" href="mailto:vagas@emidigitalsolucoes.com.br">vagas@emidigitalsolucoes.com.br</a>
+          </div>
+        </div>
+
+        <div class="career-preview glass-card reveal" id="careerPreview">
+          <div class="preview-top"><div class="preview-title"><i></i> Oportunidade atual</div><div class="status">RECEBENDO CURRÍCULOS</div></div>
+          <div class="role-card">
+            <small>Marketing & Conteúdo</small>
+            <h3>Social Media</h3>
+            <p>Uma posição para quem entende redes sociais, conteúdo, tendências e relacionamento digital de marca.</p>
+            <div class="chips"><span class="chip">Conteúdo</span><span class="chip">Social Media</span><span class="chip">Tendências</span><span class="chip">Marketing</span></div>
+          </div>
+          <div class="mail-card"><strong>Seu próximo projeto pode começar aqui.</strong><span>Envie seu currículo para vagas@emidigitalsolucoes.com.br</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vaga">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="section-kicker">Oportunidade</div><h2 class="section-title">Social Media.<br><span>Estratégia em movimento.</span></h2></div>
+          <p class="section-sub">A vaga reúne criação, gestão, acompanhamento de tendências e colaboração com diferentes frentes de marketing e comunicação.</p>
+        </div>
+
+        <article class="vacancy glass-card reveal">
+          <div class="vacancy-side">
+            <span class="vacancy-badge">Vaga · Social Media</span>
+            <h3>O que você vai fazer</h3>
+            <p>Atuar na presença digital da EMI, conectando conteúdo, comunidade, tendências e objetivos de negócio com consistência.</p>
+          </div>
+          <div class="activities">
+            <div class="activity"><span>01</span><p>Gerenciar as contas de mídias sociais da empresa, criando e agendando postagens, respondendo a comentários e monitorando métricas de desempenho.</p></div>
+            <div class="activity"><span>02</span><p>Criar e gerenciar conteúdo relevante para Facebook, Instagram, LinkedIn, YouTube e outras redes sociais.</p></div>
+            <div class="activity"><span>03</span><p>Identificar e acompanhar tendências de mídia social e inovações tecnológicas para manter a marca atualizada.</p></div>
+            <div class="activity"><span>04</span><p>Colaborar com outras áreas da empresa para alinhar a estratégia de mídia social aos objetivos gerais do negócio.</p></div>
+            <div class="activity"><span>05</span><p>Desenvolver estratégias de marketing de conteúdo, incluindo blogs, e-books, vídeos e outros materiais para atrair e engajar o público.</p></div>
+            <div class="activity"><span>06</span><p>Participar da organização e promoção de eventos de marketing, confraternizações, feiras e lançamentos de produtos.</p></div>
+            <div class="activity"><span>07</span><p>Trabalhar em conjunto com designers gráficos e especialistas em publicidade na criação de materiais promocionais.</p></div>
+            <div class="activity"><span>08</span><p>Criar comunicados internos sobre atualizações, conquistas, eventos da empresa e outras notícias relevantes.</p></div>
+            <div class="activity"><span>09</span><p>Acompanhar o orçamento de marketing, ajudando a manter os recursos e despesas dentro das metas estabelecidas.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="section-kicker">Nosso jeito</div><h2 class="section-title">Ambiente para criar,<br><span>aprender e evoluir.</span></h2></div>
+          <p class="section-sub">A EMI trabalha na interseção entre tecnologia, comunicação e experiência digital — um cenário onde ideias precisam virar execução.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card glass-card reveal"><div class="icon">✦</div><h4>Visão multidisciplinar</h4><p>Marketing e tecnologia trabalham próximos, permitindo enxergar o projeto de ponta a ponta.</p></div>
+          <div class="why-card glass-card reveal"><div class="icon">↗</div><h4>Aprendizado contínuo</h4><p>Tendências, plataformas e ferramentas mudam rápido. Curiosidade e evolução fazem parte do trabalho.</p></div>
+          <div class="why-card glass-card reveal"><div class="icon">◌</div><h4>Impacto real</h4><p>Conteúdo e estratégia são pensados para melhorar a experiência e a presença digital dos projetos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="section-kicker" style="color:#f3ccec">Quer fazer parte?</div>
+          <h2>Seu talento pode ser a próxima conexão da EMI.</h2>
+          <p>Envie seu currículo para nosso e-mail de vagas. No assunto, informe a posição de interesse para facilitar a triagem.</p>
+          <a class="btn" href="mailto:vagas@emidigitalsolucoes.com.br?subject=Curr%C3%ADculo%20-%20Vaga%20Social%20Media">Enviar currículo ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FtYWRhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTk1LjI4IDM1MS45MyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTk1LjI4IDM1MS45MzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6IzU2MDE0RDt9DQo8L3N0eWxlPg0KPGc+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTM3OS44NywyMzEuNjFjMy42MS04Ljg5LDcuMDktMTcuNDYsMTAuNTgtMjYuMDRjOC4wOC0xOS44NiwxNi4xNi0zOS43MiwyNC4yMy01OS41OA0KCQljNC41NS0xMS4xOCw5LjEtMjIuMzcsMTMuNjItMzMuNTdjMC41OS0xLjQ3LDEuMy0yLjI0LDMuMTEtMi4yMmMxMS43NCwwLjEsMjMuNDksMC4xLDM1LjIzLDAuMDFjMi4xNy0wLjAyLDIuMzQsMC40OCwxLjU2LDIuMzgNCgkJYy03LjY3LDE4LjY3LTE1LjI2LDM3LjM3LTIyLjg2LDU2LjA3Yy03LjQ5LDE4LjQ1LTE1LDM2Ljg5LTIyLjQyLDU1LjM3Yy0zLjAzLDcuNTQtMi45Miw3LjU4LTExLjE3LDcuNThjLTkuNjcsMC0xOS4zMywwLTI5LDANCgkJQzM4MS44OSwyMzEuNjEsMzgxLjAyLDIzMS42MSwzNzkuODcsMjMxLjYxeiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00NDkuOTIsMTA2Ljc2Yy01LjUxLDAtMTEuMDMsMC0xNi41NCwwYy0zLjIxLDAtMy4xMywwLjAzLTIuMTgtMi45NWMxLjA3LTMuMzEsMi40Mi02LjQxLDUuMDgtOC44DQoJCWMyLjczLTIuNDUsNS44NS0zLjksOS41NS0zLjkxYzkuNC0wLjAyLDE4LjgsMC4wMiwyOC4yLTAuMDRjMS44Ni0wLjAxLDIuMTMsMC40MiwxLjM3LDIuMTVjLTEuNjMsMy43MS0zLjA5LDcuNS00LjUxLDExLjMNCgkJYy0wLjYxLDEuNjQtMS40NywyLjM0LTMuMzYsMi4zQzQ2MS42OCwxMDYuNjcsNDU1LjgsMTA2Ljc2LDQ0OS45MiwxMDYuNzZ6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQxOS43NCw5MC4wMmMtOC43NywwLTE3LjU1LDAuMzUtMjYuMy0wLjFjLTguMjctMC40My0xNC43LDIuODEtMjAuNDIsOC4yNQ0KCQljLTE1LjUyLDE0Ljc2LTMxLjAyLDI5LjUyLTQ2LjU2LDQ0LjI1Yy0xLjA2LDEtMS45MywyLjI5LTMuNTIsMi44OWMtNC4zNi0xNS4zNC04LjY5LTMwLjQ5LTEyLjk2LTQ1LjY2DQoJCWMtMS43My02LjE2LTYuMDEtOS42MS0xMi40My05LjYxYy0zNy40Mi0wLjAxLTc0Ljg0LDAuMDItMTEyLjI2LTAuMDFjLTEuNTksMC0yLjQzLDAuNDgtMy4wMSwxLjk1Yy0xLjg4LDQuNzgtMy45LDkuNTEtNS44MywxNC4yOA0KCQljLTguNSwyMC45Ny0xNi45Niw0MS45NS0yNS40OSw2Mi45Yy03LjUxLDE4LjQ1LTE1LjExLDM2Ljg2LTIyLjU4LDU1LjMzYy0xLjA2LDIuNjMtMi40Niw1LjE4LTIuOTgsOC4yMWMwLjk3LDAsMS43NywwLDIuNTgsMA0KCQljMjQuNjctMC4wMSw0OS4zNS0wLjAyLDc0LjAyLTAuMDJjMTcuNjItMC4wMSwzNS4yNS0wLjA1LDUyLjg3LDAuMDRjMi4yMywwLjAxLDMuMzMtMC42LDQuMS0yLjc1YzEuNTQtNC4zMywzLjQxLTguNTQsNS4xMy0xMi44DQoJCWM1Ljg2LTE0LjQ1LDExLjctMjguOSwxNy41Ny00My4zNGMxLjQ4LTMuNjUsMy4wMy03LjI4LDQuNTQtMTAuOTJjMS4zNSwzLjM1LDIuMTMsNi41OCwyLjksOS44MWMyLjQ2LDEwLjI1LDQuOTYsMjAuNDksNy4zNSwzMC43Ng0KCQljMC41NywyLjQ1LDEuMDUsNC44LDMuODMsNS43MmMyLjc4LDAuOTIsNC42NC0wLjU4LDYuNDQtMi4zNmM3LjQ2LTcuMzYsMTQuOTQtMTQuNywyMi40Mi0yMi4wNWM3LjQtNy4yOCwxNC44MS0xNC41NSwyMi4yNS0yMS44Ng0KCQljMC40MSwwLjgyLTAuMDEsMS4zOC0wLjI0LDEuOTRjLTIuMzcsNS44NS00Ljc2LDExLjY5LTcuMTQsMTcuNTNjLTYuNDgsMTUuOTUtMTIuOTMsMzEuOTItMTkuNDgsNDcuODQNCgkJYy0wLjg1LDIuMDctMC41NywyLjQ5LDEuNjgsMi40OGMxMi4wMi0wLjEsMjQuMDQtMC4xMywzNi4wNiwwLjAyYzIuMzYsMC4wMywzLjI0LTAuODcsNC4wMy0yLjg3YzMuNDItOC43Miw2Ljk5LTE3LjM5LDEwLjUyLTI2LjA3DQoJCWM4LjIyLTIwLjIsMTYuNDUtNDAuNCwyNC42Ny02MC42YzYuOC0xNi43LDEzLjU4LTMzLjM5LDIwLjM5LTUwLjA5QzQyMy4xNiw5MC4wMSw0MjMuMTksOTAuMDIsNDE5Ljc0LDkwLjAyeiBNMjU4Ljk4LDEyNy4zMg0KCQljLTkuMDYsMjIuMS0xOC4wNiw0NC4yMi0yNy4wNiw2Ni4zNGMtMC40LDAuOTgtMC41MiwyLjAyLTIuMDYsMi4wMWMtMTUuODEtMC4wNS0zMS42MS0wLjAzLTQ3Ljg5LTAuMDMNCgkJYzIuNDUtNS44Nyw0Ljc4LTExLjMyLDYuOTktMTYuODJjMC42Mi0xLjU0LDEuNzctMS4yNiwyLjktMS4yNmM5LjIyLTAuMDEsMTguNDQtMC4wNywyNy42NSwwLjA1YzIuMTEsMC4wMywzLjA3LTAuNTIsMy45My0yLjU5DQoJCWM0LjA0LTkuNzQsOC4yOS0xOS4zOSwxMi41OS0yOS4wMmMwLjk5LTIuMjEsMC42LTIuNjctMS43Ny0yLjY1Yy05LjU4LDAuMTEtMTkuMTYsMC0yOC43NCwwLjA4Yy0yLjA3LDAuMDItMi43NC0wLjE2LTEuNjQtMi40NA0KCQljMi4xOS00LjU0LDQuMDgtOS4yMyw1Ljk4LTEzLjljMC41Mi0xLjI3LDEuMTQtMS43OSwyLjU2LTEuNzhjMTUuMDksMC4wNSwzMC4xOCwwLjA1LDQ1LjI3LDAuMDENCgkJQzI1OS40MSwxMjUuMzMsMjU5LjY0LDEyNS43LDI1OC45OCwxMjcuMzJ6Ii8+DQoJPGc+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNDYuMzMsMjY3LjNsNy41Mi0yMi4wNWg3LjAxbDcuNzMsMjIuMDVoLTQuNDFsLTYuNTUtMTkuMTJsMS41NCwwLjY3aC0zLjc4bDEuNTctMC42N2wtNi4zNCwxOS4xMkgxNDYuMzN6DQoJCQkgTTE1MS41OCwyNjEuNDRsMS4zNi0zLjYyaDguOTRsMS4zMywzLjYySDE1MS41OHoiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE4MS4yNywyNjcuODdjLTEuODksMC0zLjU2LTAuMzItNS0wLjk1Yy0xLjQ0LTAuNjMtMi42NS0xLjQ5LTMuNjItMi41N2MtMC45OC0xLjA4LTEuNzEtMi4yOS0yLjIxLTMuNjUNCgkJCWMtMC40OS0xLjM2LTAuNzQtMi43Ny0wLjc0LTQuMjR2LTAuNjZjMC0xLjM5LDAuMjQtMi43NSwwLjczLTQuMDhzMS4xOS0yLjUzLDIuMTMtMy41OWMwLjk0LTEuMDcsMi4wOS0xLjkyLDMuNDctMi41NQ0KCQkJYzEuMzgtMC42MywyLjk2LTAuOTUsNC43Ni0wLjk1YzEuOTMsMCwzLjY0LDAuMzYsNS4xNCwxLjA3YzEuNDksMC43MSwyLjY5LDEuNzEsMy41OSwyLjk5YzAuOTEsMS4yOCwxLjQ0LDIuNzYsMS42LDQuNDZoLTQuMzINCgkJCWMtMC4xNC0wLjk1LTAuNDktMS43Ni0xLjA2LTIuNDNjLTAuNTYtMC42Ny0xLjI3LTEuMTktMi4xMy0xLjU2cy0xLjgtMC41NC0yLjgyLTAuNTRjLTEuMDMsMC0xLjk2LDAuMTgtMi43OSwwLjU0DQoJCQljLTAuODQsMC4zNi0xLjU1LDAuODgtMi4xMywxLjU0Yy0wLjU4LDAuNjctMS4wMywxLjQ2LTEuMzQsMi4zOWMtMC4zMSwwLjkzLTAuNDcsMS45NS0wLjQ3LDMuMDhjMCwxLjIzLDAuMTcsMi4zMywwLjUxLDMuMjkNCgkJCWMwLjM0LDAuOTcsMC44MywxLjc5LDEuNDUsMi40NnMxLjM4LDEuMTksMi4yNywxLjU0YzAuODksMC4zNSwxLjg4LDAuNTMsMi45OSwwLjUzYzEuNDcsMCwyLjc2LTAuMzEsMy44Ny0wLjkyDQoJCQljMS4xMS0wLjYxLDEuOTEtMS40MSwyLjQyLTIuNGwtMC43NSwzLjQ3di01LjY4aDMuOTZ2NC44OWMtMC45NSwxLjQzLTIuMjMsMi41NC0zLjg3LDMuMzQNCgkJCUMxODUuMjYsMjY3LjQ4LDE4My4zOSwyNjcuODcsMTgxLjI3LDI2Ny44N3ogTTE4MC41OCwyNTkuMjl2LTMuMmgxMi4wMnYzLjJIMTgwLjU4eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTk2LjEzLDI2Ny4zdi0yMi4wNWg0LjJ2MjIuMDVIMTk2LjEzeiBNMTk2LjU2LDI0My41NmwzLjktNS4yNmg0Ljk4bDMuOTYsNS4yNmgtMy44NGwtMi4zOS0zLjIzaC0wLjUxDQoJCQlsLTIuMzMsMy4yM0gxOTYuNTZ6IE0xOTkuNzMsMjQ4Ljg3di0zLjYyaDkuNzZ2My42MkgxOTkuNzN6IE0xOTkuNzMsMjU3Ljkxdi0zLjYyaDkuMjF2My42MkgxOTkuNzN6IE0xOTkuNzMsMjY3LjN2LTMuNjJoMTB2My42Mg0KCQkJSDE5OS43M3oiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTIxNC4xNCwyNjcuM3YtMjIuMDVoNy4wNGw5LjI3LDE4LjQ5aDFsLTAuNiwwLjU0di0xOS4wM2g0LjA1djIyLjA1aC03LjA3bC05LjI3LTE4LjQ5aC0xLjAzbDAuNi0wLjU0djE5LjAzDQoJCQlIMjE0LjE0eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUwLjI2LDI2Ny44N2MtMS45OSwwLTMuNzEtMC4zNS01LjE0LTEuMDZjLTEuNDMtMC43LTIuNTktMS42Mi0zLjQ5LTIuNzVjLTAuOS0xLjEzLTEuNTYtMi4zNi0xLjk4LTMuNjgNCgkJCWMtMC40Mi0xLjMzLTAuNjMtMi42MS0wLjYzLTMuODR2LTAuNjdjMC0xLjM3LDAuMjItMi43MiwwLjY1LTQuMDVzMS4xLTIuNTQsMi4wMS0zLjYyYzAuOTEtMS4wOSwyLjA2LTEuOTYsMy40Ni0yLjYxDQoJCQljMS40LTAuNjUsMy4wNi0wLjk4LDQuOTctMC45OGMxLjk5LDAsMy43MywwLjM2LDUuMjEsMS4wN2MxLjQ4LDAuNzEsMi42NiwxLjcyLDMuNTUsMy4wMmMwLjg5LDEuMywxLjQyLDIuODEsMS42LDQuNTVoLTQuMzINCgkJCWMtMC4xNi0xLjAxLTAuNTItMS44Ni0xLjA3LTIuNTVjLTAuNTUtMC43LTEuMjUtMS4yMi0yLjEtMS41N2MtMC44NS0wLjM1LTEuOC0wLjUzLTIuODctMC41M2MtMS4wOSwwLTIuMDUsMC4xOS0yLjksMC41Ng0KCQkJYy0wLjg1LDAuMzctMS41NSwwLjktMi4xMSwxLjU5cy0wLjk5LDEuNDktMS4yOCwyLjQyYy0wLjI5LDAuOTMtMC40NCwxLjk1LTAuNDQsMy4wOGMwLDEuMDksMC4xNSwyLjA5LDAuNDQsMy4wMg0KCQkJYzAuMjksMC45MywwLjczLDEuNzQsMS4zMSwyLjQzYzAuNTgsMC43LDEuMywxLjIzLDIuMTYsMS42MmMwLjg2LDAuMzgsMS44NSwwLjU3LDIuOTgsMC41N2MxLjY1LDAsMy4wNS0wLjQxLDQuMTgtMS4yMg0KCQkJczEuODMtMS45NiwyLjA3LTMuNDNoNC4zMmMtMC4yLDEuNTctMC43NCwzLjAxLTEuNiw0LjMyYy0wLjg3LDEuMzEtMi4wNSwyLjM2LTMuNTYsMy4xNA0KCQkJQzI1NC4xNiwyNjcuNDgsMjUyLjM2LDI2Ny44NywyNTAuMjYsMjY3Ljg3eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjY0LjUyLDI2Ny4zdi0yMi4wNWg0LjI5djIyLjA1SDI2NC41MnoiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI3Mi4xMywyNjcuM2w3LjUyLTIyLjA1aDcuMDFsNy43MywyMi4wNWgtNC40MWwtNi41NS0xOS4xMmwxLjU0LDAuNjdoLTMuNzhsMS41Ny0wLjY3bC02LjM0LDE5LjEySDI3Mi4xM3oNCgkJCSBNMjc3LjM5LDI2MS40NGwxLjM2LTMuNjJoOC45NGwxLjMzLDMuNjJIMjc3LjM5eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzAxLjk0LDI2Ny4zbDQuMjMtMjEuMTRoOS4xOGMyLjIxLDAsNC4xMSwwLjM2LDUuNjksMS4wOWMxLjU4LDAuNzMsMi43OSwxLjc1LDMuNjQsMy4wNw0KCQkJYzAuODUsMS4zMiwxLjI3LDIuODksMS4yNyw0LjczYzAsMS44Ny0wLjMyLDMuNTYtMC45Nyw1LjA2Yy0wLjY0LDEuNS0xLjU1LDIuNzktMi43MiwzLjg3Yy0xLjE3LDEuMDgtMi41NiwxLjktNC4xNywyLjQ4DQoJCQljLTEuNjEsMC41Ny0zLjM5LDAuODYtNS4zNSwwLjg2SDMwMS45NHogTTMwOC44OSwyNjIuNTNoNC4wNWMxLjUxLDAsMi43OC0wLjMxLDMuODEtMC45NGMxLjAzLTAuNjIsMS44MS0xLjQ3LDIuMzYtMi41NQ0KCQkJYzAuNTQtMS4wOCwwLjgyLTIuMjksMC44Mi0zLjY0YzAtMC45NS0wLjItMS43NS0wLjU5LTIuNDJzLTAuOTgtMS4xNy0xLjc1LTEuNTNzLTEuNzQtMC41My0yLjg4LTAuNTNoLTMuNUwzMDguODksMjYyLjUzeiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzI2Ljg5LDI2Ny4zbDQuMjMtMjEuMTRoNS45OGwtNC4yMywyMS4xNEgzMjYuODl6Ii8+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNDguNjcsMjY3LjcyYy0yLjEzLDAtNC0wLjM5LTUuNi0xLjE4Yy0xLjYtMC43OS0yLjg0LTEuODgtMy43Mi0zLjI4cy0xLjMxLTMuMDItMS4zMS00Ljg1DQoJCQljMC0xLjgzLDAuMzItMy41MiwwLjk3LTUuMDdjMC42NC0xLjU1LDEuNTYtMi44OSwyLjc1LTQuMDNzMi42LTIuMDIsNC4yNC0yLjY0YzEuNjQtMC42MiwzLjQ3LTAuOTQsNS40OC0wLjk0DQoJCQljMi4xMSwwLDMuOTQsMC4zMyw1LjQ4LDFjMS41NCwwLjY3LDIuNzgsMS42MywzLjczLDIuOWwtNC4yOSwzLjM4Yy0wLjcxLTAuODctMS40Ny0xLjQ3LTIuMjktMS44MWMtMC44My0wLjM0LTEuNzktMC41MS0yLjktMC41MQ0KCQkJYy0xLjA5LDAtMi4wNywwLjE4LTIuOTQsMC41NHMtMS42MywwLjg4LTIuMjUsMS41NGMtMC42MiwwLjY3LTEuMSwxLjQ1LTEuNDMsMi4zNGMtMC4zMywwLjktMC41LDEuODctMC41LDIuOTENCgkJCWMwLDAuOTUsMC4yMSwxLjc4LDAuNjMsMi40OXMxLjA0LDEuMjcsMS44NCwxLjY2czEuNzgsMC41OSwyLjkzLDAuNTljMC45MywwLDEuODItMC4xNSwyLjY3LTAuNDVjMC44Ni0wLjMsMS43Mi0wLjgsMi41OC0xLjUxDQoJCQlsMi4yNyw0LjM4Yy0xLjA5LDAuODEtMi4zNSwxLjQzLTMuNzgsMS44N0MzNTEuOCwyNjcuNSwzNTAuMjgsMjY3LjcyLDM0OC42NywyNjcuNzJ6IE0zNTEuOSwyNjQuMjVsMS42LTcuOTdoNS4yOWwtMS43OCw4LjkxDQoJCQlMMzUxLjksMjY0LjI1eiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzYwLjM5LDI2Ny4zbDQuMjMtMjEuMTRoNS45OGwtNC4yMywyMS4xNEgzNjAuMzl6Ii8+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNzUuMSwyNjcuM2wzLjI5LTE2LjRoLTYuNDlsMC45Ny00Ljc0aDE4Ljk0bC0wLjk3LDQuNzRoLTYuNDZsLTMuMjksMTYuNEgzNzUuMXoiLz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTM4Ni4yMSwyNjcuM2wxMy41Ni0yMS4xNGg1Ljg5bDUuMSwyMS4xNGgtNS45NWwtMy43OC0xOC4zaDIuMzZsLTEwLjg3LDE4LjNIMzg2LjIxeiBNMzkyLjEzLDI2My4xOQ0KCQkJbDIuNDItNC40MWgxMC4zM2wwLjY2LDQuNDFIMzkyLjEzeiIvPg0KCQk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDEyLjQ5LDI2Ny4zbDQuMjMtMjEuMTRoNS45OGwtMy4yNiwxNi40aDEwLjA5bC0wLjk3LDQuNzRINDEyLjQ5eiIvPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K" alt="EMI Digital Soluções"><p>Soluções digitais sob medida para empresas que querem inovar, automatizar e crescer com uma presença digital mais forte.</p></div>
+        <div class="footer-col"><h5>Navegação</h5><a href="index.html#inicio">Início</a><a href="index.html#solucoes">Soluções</a><a href="index.html#processo">Como fazemos</a><a href="trabalhe-conosco.html">Trabalhe conosco</a></div>
+        <div class="footer-col"><h5>Contato</h5><a href="mailto:suporte@emidigitalsolucoes.com.br">suporte@emidigitalsolucoes.com.br</a><a href="mailto:vagas@emidigitalsolucoes.com.br">vagas@emidigitalsolucoes.com.br</a><a href="https://emidigitalsolucoes.ladesk.com/" target="_blank" rel="noopener">Área do cliente</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> EMI Digital Soluções. Todos os direitos reservados.</span><span>Estratégia · Tecnologia · Automação · Marketing</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const $=(s,p=document)=>p.querySelector(s), $$=(s,p=document)=>[...p.querySelectorAll(s)];
+    $('#year').textContent=new Date().getFullYear();
+    const nav=$('#nav');
+    addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+    $('#menuBtn').addEventListener('click',()=>nav.classList.toggle('open'));
+    $$('#navLinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}
+      })
+    },{threshold:.12});
+    $$('.reveal').forEach(el=>observer.observe(el));
+
+    if(matchMedia('(pointer:fine)').matches){
+      const card=$('#careerPreview');
+      card.addEventListener('mousemove',e=>{
+        const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        card.style.transform=`rotateY(${x*8-4}deg) rotateX(${-y*7+2}deg) translateY(-2px)`;
+      });
+      card.addEventListener('mouseleave',()=>card.style.transform='rotateY(-5deg) rotateX(3deg)');
+      const glow=$('#cursorGlow');
+      addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+      $$('.btn').forEach(btn=>{
+        btn.addEventListener('mousemove',e=>{
+          const r=btn.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;
+          btn.style.transform=`translate(${x*.045}px,${y*.07-2}px)`;
+        });
+        btn.addEventListener('mouseleave',()=>btn.style.transform='');
+      });
+    }
+  </script>
+</body>
+</html>
